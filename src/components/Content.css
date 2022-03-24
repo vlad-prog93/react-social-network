@@ -1,0 +1,11 @@
+.content {
+  grid-area: cont;
+  background-color: aquamarine;
+}
+
+.content img {
+  display: block;
+  object-fit: cover;
+  height: 100px;
+  width: 100%;
+}
