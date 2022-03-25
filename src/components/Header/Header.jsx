@@ -1,9 +1,9 @@
 import React from "react";
-import './Header.css'
+import classes from './Header.module.css';
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className={classes.header}>
       <img src="https://img.icons8.com/metro/208/name.png" alt="logo"/>
     </div>
   )

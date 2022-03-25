@@ -1,17 +1,19 @@
 body {
-  margin: 0;
-  padding: 0;
-
+    margin: 0;
+    padding: 0;
 }
 
 .wrapper {
-  display: grid;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  grid-template-areas: 
-  "header header header"
-  "sidebar cont cont";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    grid-template-areas: "header header header" "sidebar cont cont";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+}
+
+.wrapper-content {
+    grid-area: cont;
+    background-color: aquamarine;
 }
