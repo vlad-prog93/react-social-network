@@ -6,19 +6,19 @@ const Sidebar = () => {
   return (
       <ul className={classes.sidebar}>
         <li className={`${classes.item}`}>
-          <NavLink className={'active' ? classes.active: undefined} to="/profile">Profile</NavLink>
+          <NavLink className={(navData) => navData.isActive ? classes.active : "" } to="/profile">Profile</NavLink>
         </li>
         <li className={classes.item}>
-          <NavLink to="dialogs">Messages</NavLink>
+          <NavLink className={(navData) => navData.isActive ? classes.active : "" } to="/dialogs">Messages</NavLink>
         </li>
         <li className={classes.item}>
-          <NavLink to="news">News</NavLink>
+          <NavLink className={(navData) => navData.isActive ? classes.active : "" } to="/news">News</NavLink>
         </li>
         <li className={classes.item}>
-          <NavLink to="music">Music</NavLink>
+          <NavLink className={(navData) => navData.isActive ? classes.active : "" } to="/music">Music</NavLink>
         </li>
         <li className={classes.item}>
-          <NavLink to="settings">Settings</NavLink>
+          <NavLink className={(navData) => navData.isActive ? classes.active : "" } to="/settings">Settings</NavLink>
         </li>
       </ul>
   )

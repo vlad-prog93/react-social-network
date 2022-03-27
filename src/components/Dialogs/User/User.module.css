@@ -1,0 +1,12 @@
+.user {
+   
+}
+.user__link {
+    text-decoration: none;
+    color: black;
+}
+
+.user__link_active {
+    color: red;
+    text-decoration: none;
+}
