@@ -19,7 +19,7 @@ const MyPosts = (props) => {
       My posts
 
       <div>
-        <textarea onChange={newPostText} value={props.profile.newPostText} ref={text} placeholder="Введите текст"></textarea>
+        <textarea className={classes.textpost} onChange={newPostText} value={props.profile.newPostText} ref={text} placeholder="Введите текст"></textarea>
         <button onClick={addPost}>Add post</button>
         <button>Remove post</button>
       </div>
