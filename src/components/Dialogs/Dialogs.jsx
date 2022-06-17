@@ -2,13 +2,17 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import User from './User/User'
 import Message from './Message/Message'
-
+import { newMessageTextActionCreator, sentMessageActionCreator } from '../../redux/dialogsReducer';
 
 
 const Dialogs = (props) => {
   const message = React.createRef();
+  const newMessageText = (message) => {
+    props.dispatch(newMessageTextActionCreator(message.target.value))
+  }
+
   const sentMessage = () => {
-    alert(message.current.value)
+    props.dispatch(sentMessageActionCreator())
   }
 
   return (
@@ -19,7 +23,7 @@ const Dialogs = (props) => {
       <ul className={classes.messages}>
         {props.state.messages.map(message => <Message key={message.id} message = {message.message} />)}
       </ul>
-      <textarea ref={message} placeholder='Введите текст'></textarea>
+      <textarea ref={message} value={props.state.newMessageText} onChange={newMessageText} placeholder='Введите текст'></textarea>
       <button onClick={sentMessage}>Отправить</button>
     </div>
   )
