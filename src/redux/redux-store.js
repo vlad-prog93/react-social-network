@@ -3,8 +3,8 @@ import profileReducer from "./profileReducer"
 import dialogsReducer from "./dialogsReducer"
 
 const reducers = combineReducers({
-  profileReducer,
-  dialogsReducer
+  profilePage: profileReducer,
+  dialogsPage: dialogsReducer
 })
 
 export const store = legacy_createStore(reducers)

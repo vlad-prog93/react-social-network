@@ -26,17 +26,18 @@ const initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
+  const stateCopy = JSON.parse(JSON.stringify(state))
   switch (action.type) {
     case 'UPDATE-MESSAGE-TEXT':
-      state.newMessage = action.message
-      return state
+      stateCopy.newMessage = action.message
+      return stateCopy
     case 'ADD-MESSAGE':
       const data = {}
       data['id'] = 4
-      data['message'] = state.newMessage
-      state.messages.unshift(data)
-      state.newMessage = ''
-      return state
+      data['message'] = stateCopy.newMessage
+      stateCopy.messages.unshift(data)
+      stateCopy.newMessage = ''
+      return stateCopy
     default:
       return state
   }

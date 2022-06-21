@@ -2,28 +2,23 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import User from './User/User'
 import Message from './Message/Message'
-import { newMessageTextActionCreator, sentMessageActionCreator } from '../../redux/dialogsReducer';
-
 
 const Dialogs = (props) => {
-  const message = React.createRef();
-  const newMessageText = (message) => {
-    props.dispatch(newMessageTextActionCreator(message.target.value))
-  }
+  const message = React.createRef()
 
-  const sentMessage = () => {
-    props.dispatch(sentMessageActionCreator())
-  }
+  const typeNewMessageText = (message) => props.typeNewMessageText(message)
+
+  const sentMessage = () => props.sentMessage()
 
   return (
     <div className={classes.dialogs}>
       <ul className={classes.users}>
-        {props.state.users.map(user => <User key={user.id} id={`${user.id}`} name={user.name} />)}
+        {props.users.map(user => <User key={user.id} id={`${user.id}`} name={user.name} />)}
       </ul>
       <ul className={classes.messages}>
-        {props.state.messages.map(message => <Message key={message.id} message = {message.message} />)}
+        {props.messages.map(message => <Message key={message.id} message = {message.message} />)}
       </ul>
-      <textarea ref={message} value={props.state.newMessageText} onChange={newMessageText} placeholder='Введите текст'></textarea>
+      <textarea ref={message} value={props.newMessageText} onChange={typeNewMessageText} placeholder='Введите текст'></textarea>
       <button onClick={sentMessage}>Отправить</button>
     </div>
   )
